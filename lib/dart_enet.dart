@@ -1,8 +1,11 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
 library;
 
-export 'src/dart_enet_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export "src/address.dart" show Address;
+export "src/packet.dart" show Packet;
+export "src/event.dart"
+    show EnetEvent, ConnectEvent, DisconnectEvent, ReceiveEvent;
+export "src/exceptions.dart" show EnetError;
+export "src/host.dart" show Host;
+export "src/peer.dart" show Peer;
+export "src/packet_flags.dart" show PacketFlags;
+export "src/peer_state.dart" show PeerState;

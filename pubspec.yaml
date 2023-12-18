@@ -1,10 +1,33 @@
 name: dart_enet
-description: A starting point for Dart libraries or applications.
+description: Dart bindings for the ENet reliable UDP networking library.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/the-byte-bender/dart_enet
+ffigen:
+  name: "Enet"
+  description: "Bindings to Enet"
+  output: "lib/src/enet.dart"
+  preamble: |
+    // ignore_for_file: always_specify_types, unused_element, unused_field
+    // ignore_for_file: camel_case_types
+    // ignore_for_file: non_constant_identifier_names
+  compiler-opts:
+    - "-I./"
+  enums:
+    rename:
+      "_(.*)": "$1"
+  functions:
+    symbol-address:
+      include:
+        - ".*"
+  headers:
+    entry-points:
+      - "enet/types.h"
+      - "enet/enet.h"
+    include-directives:
+      - "**enet/**"
 
 environment:
-  sdk: ^3.1.2
+  sdk: ^3.2.3
 
 # Add regular dependencies here.
 dependencies:
