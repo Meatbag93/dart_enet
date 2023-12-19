@@ -1,10 +1,17 @@
 import "dart:convert";
+import "dart:io";
 import "package:dart_enet/dart_enet.dart";
 
 void main() async {
   final Host host =
       Host(address: Address("*", 1234), channelLimit: 1, peerCount: 32);
   EnetEvent? event;
+  ProcessSignal.sigint.watch().listen((event) {
+    deinitializeEnet();
+    print("Good bye.");
+    exit(0);
+  });
+
   print("ctrl+c to quit");
   while (true) {
     event = host.service();
@@ -23,5 +30,4 @@ void main() async {
       event.peer.send(0, Packet(utf8.encode("I got your message: $contents")));
     }
   }
-  deinitializeEnet();
 }
