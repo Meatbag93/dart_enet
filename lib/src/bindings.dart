@@ -20,3 +20,6 @@ final DynamicLibrary _dylib = () {
 
 /// The bindings to the native functions in [_dylib].
 final Enet bindings = Enet(_dylib)..enet_initialize();
+
+/// Deinitializes the ENet library. This should be called just before your program exits
+void deinitializeEnet() => bindings.enet_deinitialize();

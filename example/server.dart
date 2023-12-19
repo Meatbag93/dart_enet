@@ -23,4 +23,5 @@ void main() async {
       event.peer.send(0, Packet(utf8.encode("I got your message: $contents")));
     }
   }
+  deinitializeEnet();
 }

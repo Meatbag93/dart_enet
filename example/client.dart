@@ -33,4 +33,5 @@ void main() async {
       print("Server says ${utf8.decode(event.packet.data)}");
     }
   }
+  deinitializeEnet();
 }

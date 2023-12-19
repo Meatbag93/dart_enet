@@ -9,3 +9,4 @@ export "src/host.dart" show Host;
 export "src/peer.dart" show Peer;
 export "src/packet_flags.dart" show PacketFlags;
 export "src/peer_state.dart" show PeerState;
+export "src/bindings.dart" show deinitializeEnet;
